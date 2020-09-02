@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Heading = styled.h1`
     color: ${({ theme }) =>
-        theme.global.themeColor !== "light"
-            ? `#fff`
+        theme.dark
+            ? theme.global.primaryColor[400]
             : theme.global.primaryColor.normal};
     position: relative;
     display: flex;

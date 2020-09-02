@@ -1,14 +1,7 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 import { blue, red, gray, purple } from "./Colors";
-
-const lightTheme = {
-    primaryColor: blue,
-    secondaryColor: gray[100],
-    regularColor: "#fff",
-    cornerRadius: 6,
-};
-class ThemeLight {
+class ThemeParams {
     constructor(
         primaryColor,
         secondaryColor,
@@ -24,28 +17,14 @@ class ThemeLight {
         this.themeColor = themeColor || "light";
     }
 }
-class ThemeDark {
-    constructor(
-        primaryColor,
-        secondaryColor,
-        backgroundColor,
-        regularColor,
-        cornerRadius
-    ) {
-        this.primaryColor = primaryColor;
-        this.backgroundColor = backgroundColor;
-        this.secondaryColor = secondaryColor;
-        this.regularColor = regularColor;
-        this.cornerRadius = cornerRadius;
-    }
-}
 
-const myTheme = {
-    global: new ThemeLight(blue, gray[100], "#fff", 6),
+const Theme = ({ children, dark }) => {
+    console.log(dark);
+    const myTheme = {
+        global: new ThemeParams(purple, gray[100], "#fff", 6),
+        dark,
+    };
+
+    return <ThemeProvider theme={myTheme}>{children}</ThemeProvider>;
 };
-
-const Theme = ({ children }) => (
-    <ThemeProvider theme={myTheme}>{children}</ThemeProvider>
-);
-
 export default Theme;

@@ -6,9 +6,7 @@ import { gray } from "../Colors";
 
 const Wrapper = styled.div`
     background: ${({ theme }) =>
-        theme.global.themeColor !== "light"
-            ? gray[900]
-            : theme.global.backgroundColor}; ;
+        theme.dark ? gray[900] : theme.global.backgroundColor}; ;
 `;
 
 export default Wrapper;

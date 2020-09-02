@@ -77,6 +77,6 @@ label input[type="checkbox"] {
     margin-top: 3rem;
     display: flex;
     justify-content: center;
-    border-top: 1px solid #f1f1f1;
+    border-top: 1px solid #88888855;
     padding-top: 1rem;
 }

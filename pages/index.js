@@ -6,12 +6,27 @@ import Theme from "../components/Theme";
 import Wrapper from "../components/layout";
 import Heading from "../components/Heading/Index";
 import Link from "../components/Link/Index";
+import Input from "../components/Input";
+import FormWrapper from "../components/FormWrapper";
+import DarkModeToggle from "react-dark-mode-toggle";
+import { useState } from "react";
 
 export default function Home() {
+    const [dark, setDark] = useState(false);
+    function handleDark() {
+        setDark(!dark);
+    }
     return (
-        <Theme>
+        <Theme dark={dark}>
             <Wrapper>
                 <div className={styles.container}>
+                    <div style={{ marginTop: 40, marginBottom: "-140px" }}>
+                        <DarkModeToggle
+                            onChange={handleDark}
+                            checked={dark}
+                            size={60}
+                        />
+                    </div>
                     <Head>
                         <title>Create Next App</title>
                         <link rel="icon" href="/favicon.ico" />
@@ -19,19 +34,19 @@ export default function Home() {
 
                     <main className={styles.main}>
                         <Heading>Welcome aboard!</Heading>
-                        <div className="form-wrapper">
-                            <label htmlFor="username">Username</label>
-                            <input
+                        <FormWrapper>
+                            <Input
                                 type="text"
                                 placeholder="Username"
                                 id="username"
+                                label="Username"
                             />
 
-                            <label htmlFor="password">Password</label>
-                            <input
+                            <Input
                                 type="password"
                                 name="password"
                                 id="password"
+                                label="Password"
                             />
 
                             <label className="check">
@@ -51,7 +66,7 @@ export default function Home() {
                                     I already have an account.
                                 </Link>
                             </div>
-                        </div>
+                        </FormWrapper>
                     </main>
                 </div>
             </Wrapper>
