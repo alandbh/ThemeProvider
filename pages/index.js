@@ -47,6 +47,7 @@ export default function Home() {
                                 name="password"
                                 id="password"
                                 label="Password"
+                                error="Choose a safer password"
                             />
 
                             <label className="check">
