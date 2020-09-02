@@ -1,3 +1,7 @@
+# ThemeProvider Playground
+
+Just some experiments using React + Styled Components and ThemeProvider for a brand new Design System which is under development by the IXD team at [ITX Corp](https://itx.com/).
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
