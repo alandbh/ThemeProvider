@@ -26,10 +26,19 @@ const InnerLabel = styled.label`
     color: ${({ theme }) => (theme.dark ? gray[300] : gray[600])};
 `;
 
+const ErrorMessage = styled.div`
+    display: inline-block;
+    color: ${({ theme }) => theme.global.danger[400]};
+    margin-bottom: 1rem;
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+`;
+
 const Input = (props) => (
     <>
         <InnerLabel htmlFor={props.id}>{props.label}</InnerLabel>
         <InnerInput {...props} />
+        <ErrorMessage>{props.error}</ErrorMessage>
     </>
 );
 
