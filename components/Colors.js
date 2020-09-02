@@ -50,6 +50,7 @@ export const green = new ColorMaker(
 );
 export const orange = new ColorMaker(
     {
+        100: "fff8e9",
         400: "fcc551",
         500: "fb9900",
     },
