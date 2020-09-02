@@ -5,7 +5,7 @@ import { gray } from "../Colors";
 // import { Container } from './styles';
 
 const Wrapper = styled.div`
-    transition: 0.4s;
+    transition: 1s;
     background: ${({ theme }) =>
         theme.dark ? gray[900] : theme.global.primaryColor[100]}; ;
 `;
