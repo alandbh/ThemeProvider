@@ -7,7 +7,8 @@ import { gray } from "../Colors";
 const Wrapper = styled.div`
     transition: 1s;
     background: ${({ theme }) =>
-        theme.dark ? gray[900] : theme.global.primaryColor[100]}; ;
+        theme.dark ? gray[900] : theme.global.primaryColor[100]};
+    display: flex;
 `;
 
 export default Wrapper;

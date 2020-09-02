@@ -10,27 +10,34 @@ import Input from "../components/Input";
 import FormWrapper from "../components/FormWrapper";
 import DarkModeToggle from "react-dark-mode-toggle";
 import { useState } from "react";
+import Container from "../components/Container";
+import Drawer from "../components/Drawer";
+import ToggleMenu from "../components/ToggleMenu";
 
 export default function Home() {
     const [dark, setDark] = useState(false);
-    function handleDark() {
-        setDark(!dark);
-    }
+
+    const [isOpen, setIsOpen] = useState(true);
     return (
         <Theme dark={dark}>
+            <Head>
+                <title>Aurora Design System</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <Wrapper>
-                <div className={styles.container}>
+                <Drawer open={isOpen}>asasa</Drawer>
+                <Container>
+                    <ToggleMenu
+                        onChange={() => setIsOpen(!isOpen)}
+                        checked={isOpen}
+                    />
                     <div style={{ marginTop: 40, marginBottom: "-140px" }}>
                         <DarkModeToggle
-                            onChange={handleDark}
+                            onChange={() => setDark(!dark)}
                             checked={dark}
                             size={60}
                         />
                     </div>
-                    <Head>
-                        <title>Create Next App</title>
-                        <link rel="icon" href="/favicon.ico" />
-                    </Head>
 
                     <main className={styles.main}>
                         <Heading>Welcome aboard!</Heading>
@@ -69,7 +76,7 @@ export default function Home() {
                             </div>
                         </FormWrapper>
                     </main>
-                </div>
+                </Container>
             </Wrapper>
         </Theme>
     );

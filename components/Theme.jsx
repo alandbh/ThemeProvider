@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { blue, red, purple, orange } from "./Colors";
 
 const themeOptions = {
-    primaryColor: blue,
+    primaryColor: red,
     danger: red,
     cornerRadius: 4,
     elevation: 3,
