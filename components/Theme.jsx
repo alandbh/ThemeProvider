@@ -1,20 +1,21 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { blue, red, gray, purple } from "./Colors";
+import { blue, red, purple, orange } from "./Colors";
 class ThemeParams {
-    constructor(primaryColor, secondaryColor, regularColor, cornerRadius) {
+    constructor(primaryColor, danger, cornerRadius) {
         this.primaryColor = primaryColor;
-        this.backgroundColor = primaryColor[100];
-        this.secondaryColor = secondaryColor;
-        this.regularColor = regularColor;
+        this.danger = danger;
         this.cornerRadius = cornerRadius;
     }
 }
 
 const Theme = ({ children, dark }) => {
-    console.log(dark);
     const myTheme = {
-        global: new ThemeParams(purple, gray[100], "#fff", 4),
+        global: {
+            primaryColor: purple,
+            danger: red,
+            cornerRadius: 6,
+        },
         dark,
     };
 
