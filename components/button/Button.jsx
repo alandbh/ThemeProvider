@@ -27,6 +27,7 @@ const Button = styled.button`
     border-radius: ${(props) => props.theme.global.cornerRadius}px;
     font-weight: bold;
     margin-left: ${(props) => (props.marginLeft ? `1rem` : 0)};
+    cursor: pointer;
 
     &:hover {
         background: ${(props) => colorHandler(props)};
