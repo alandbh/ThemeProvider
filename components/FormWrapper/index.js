@@ -7,7 +7,8 @@ const FormWrapper = styled.div`
     width: 450px;
     box-shadow: 0 3px 20px #00000010;
     padding: 2.3rem 1.8rem;
-    border-radius: 4px;
+    border-radius: ${({ theme }) =>
+        theme.global.cornerRadius > 15 ? 15 : theme.global.cornerRadius}px;
     color: ${({ theme }) =>
         theme.dark
             ? theme.global.primaryColor[400]
