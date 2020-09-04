@@ -93,10 +93,6 @@ const RadioContainer = styled.label`
     box-shadow: 0 0 15px 5px
         ${({ value, checked }) =>
             checked ? colorObject[value] + `ff` : `#ffffff00`};
-
-    &:before {
-        content: "";
-    }
 `;
 
 const ColorRadio = (props) => (

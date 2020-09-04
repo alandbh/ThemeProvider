@@ -7,7 +7,7 @@ import { gray } from "../Colors";
 const OuterDrawer = styled.div`
     width: ${(props) => (props.open ? 300 : 0)}px;
     height: 100vh;
-    background: ${gray[800]};
+    background: #113344;
     overflow: hidden;
     transition: 0.4s;
 `;

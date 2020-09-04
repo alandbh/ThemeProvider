@@ -15,12 +15,14 @@ import Drawer from "../components/Drawer";
 import ToggleMenu from "../components/ToggleMenu";
 import { blue } from "../components/Colors";
 import ColorRadio from "../components/ColorRadio";
+import Range from "../components/Range";
 
 export default function Home() {
     const [dark, setDark] = useState(false);
-
     const [isOpen, setIsOpen] = useState(false);
     const [selectedColor, setSelectedColor] = useState("blue");
+    const [elevation, setElevation] = useState("2");
+
     return (
         <Theme dark={dark} primaryColor={selectedColor}>
             <Head>
@@ -78,7 +80,14 @@ export default function Home() {
                     <Heading color="#ffffff77" level={4}>
                         Elevation
                     </Heading>
-                    <input type="range" />
+
+                    <Range
+                        type="range"
+                        min="3"
+                        max="5"
+                        value={elevation}
+                        onChange={(ev) => setElevation(ev.target.value)}
+                    />
                 </Drawer>
                 <Container>
                     <ToggleMenu
