@@ -8,12 +8,10 @@ function getPosition(min, max, value, drop) {
     const range = max - min;
     const difference = value - min;
     const percentage = (difference / range) * 100;
-    if (percentage === 100) {
-        return `calc(${percentage}% - ${drop + 0}px)`;
-    } else if (percentage === 0) {
+    if (percentage === 0) {
         return `calc(${percentage}% + ${drop - 16}px)`;
     } else {
-        return `calc(${percentage}% - ${drop / 2}px)`;
+        return `calc(${percentage}% - ${drop * (percentage / 100)}px)`;
     }
 }
 

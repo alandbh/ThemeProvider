@@ -24,7 +24,7 @@ export default function Home() {
     const [elevation, setElevation] = useState("2");
 
     return (
-        <Theme dark={dark} primaryColor={selectedColor}>
+        <Theme dark={dark} primaryColor={selectedColor} elevation={elevation}>
             <Head>
                 <title>Aurora Design System</title>
                 <link rel="icon" href="/favicon.ico" />
@@ -83,7 +83,7 @@ export default function Home() {
 
                     <Range
                         type="range"
-                        min="3"
+                        min="1"
                         max="5"
                         value={elevation}
                         onChange={(ev) => setElevation(ev.target.value)}
