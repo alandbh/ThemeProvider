@@ -3,7 +3,6 @@ import { ThemeProvider } from "styled-components";
 import { blue, red, purple, orange } from "./Colors";
 
 const themeOptions = {
-    primaryColor: red,
     danger: red,
     cornerRadius: 4,
     elevation: 3,
@@ -25,9 +24,18 @@ class ThemeParams {
     }
 }
 
-const Theme = ({ children, dark }) => {
+const Theme = ({ children, dark, primaryColor }) => {
+    const colorObject = {
+        red: red,
+        blue: blue,
+        purple: purple,
+        orange: orange,
+    };
     const myTheme = {
-        global: new ThemeParams(themeOptions),
+        global: new ThemeParams({
+            primaryColor: colorObject[primaryColor],
+            ...themeOptions,
+        }),
         dark,
     };
 
