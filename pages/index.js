@@ -40,10 +40,16 @@ export default function Home() {
                     <Heading color="#ffffff77" level={4}>
                         Primary Color
                     </Heading>
-                    <div>
+                    <div
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                        }}
+                    >
                         <ColorRadio
                             type="radio"
                             name="primaryColor"
+                            value="blue"
                             checked={selectedColor === "blue"}
                             onChange={() => setSelectedColor("blue")}
                         />
@@ -54,7 +60,25 @@ export default function Home() {
                             checked={selectedColor === "purple"}
                             onChange={() => setSelectedColor("purple")}
                         />
+                        <ColorRadio
+                            type="radio"
+                            name="primaryColor"
+                            value="red"
+                            checked={selectedColor === "red"}
+                            onChange={() => setSelectedColor("red")}
+                        />
+                        <ColorRadio
+                            type="radio"
+                            name="primaryColor"
+                            value="orange"
+                            checked={selectedColor === "orange"}
+                            onChange={() => setSelectedColor("orange")}
+                        />
                     </div>
+                    <Heading color="#ffffff77" level={4}>
+                        Elevation
+                    </Heading>
+                    <input type="range" />
                 </Drawer>
                 <Container>
                     <ToggleMenu
