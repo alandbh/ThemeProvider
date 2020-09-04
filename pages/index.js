@@ -13,34 +13,60 @@ import { useState } from "react";
 import Container from "../components/Container";
 import Drawer from "../components/Drawer";
 import ToggleMenu from "../components/ToggleMenu";
+import { blue } from "../components/Colors";
+import ColorRadio from "../components/ColorRadio";
 
 export default function Home() {
     const [dark, setDark] = useState(false);
 
-    const [isOpen, setIsOpen] = useState(true);
+    const [isOpen, setIsOpen] = useState(false);
+    const [selectedColor, setSelectedColor] = useState("blue");
     return (
-        <Theme dark={dark}>
+        <Theme dark={dark} primaryColor={selectedColor}>
             <Head>
                 <title>Aurora Design System</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Wrapper>
-                <Drawer open={isOpen}>asasa</Drawer>
+            <Wrapper drawer={isOpen}>
+                <Drawer open={isOpen}>
+                    <Heading color="#ffffff77" level={4}>
+                        Dark / Light Mode
+                    </Heading>
+                    <DarkModeToggle
+                        onChange={() => setDark(!dark)}
+                        checked={dark}
+                        size={60}
+                    />
+                    <Heading color="#ffffff77" level={4}>
+                        Primary Color
+                    </Heading>
+                    <div>
+                        <ColorRadio
+                            type="radio"
+                            name="primaryColor"
+                            checked={selectedColor === "blue"}
+                            onChange={() => setSelectedColor("blue")}
+                        />
+                        <ColorRadio
+                            type="radio"
+                            name="primaryColor"
+                            value="purple"
+                            checked={selectedColor === "purple"}
+                            onChange={() => setSelectedColor("purple")}
+                        />
+                    </div>
+                </Drawer>
                 <Container>
                     <ToggleMenu
                         onChange={() => setIsOpen(!isOpen)}
                         checked={isOpen}
                     />
-                    <div style={{ marginTop: 40, marginBottom: "-140px" }}>
-                        <DarkModeToggle
-                            onChange={() => setDark(!dark)}
-                            checked={dark}
-                            size={60}
-                        />
-                    </div>
+                    <div
+                        style={{ marginTop: 40, marginBottom: "-140px" }}
+                    ></div>
 
                     <main className={styles.main}>
-                        <Heading>Welcome aboard!</Heading>
+                        <Heading level={1}>Welcome aboard!</Heading>
                         <FormWrapper>
                             <Input
                                 type="text"
