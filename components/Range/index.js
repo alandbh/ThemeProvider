@@ -63,7 +63,7 @@ const Drop = styled.span`
     top: 0;
     left: ${({ min, max, value }) => getPosition(min, max, value, dropSize)};
     text-align: center;
-    transition: 0.4s;
+    transition: 0.2s;
     z-index: 1;
     font-size: 0.75rem;
     line-height: ${dropSize}px;

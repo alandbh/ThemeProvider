@@ -15,6 +15,7 @@ const FormWrapper = styled.div`
         theme.dark
             ? theme.global.primaryColor[400]
             : theme.global.primaryColor.normal};
+    transition: 0.5s;
 `;
 
 export default FormWrapper;

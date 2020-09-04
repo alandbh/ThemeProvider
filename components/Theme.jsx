@@ -4,7 +4,6 @@ import { blue, red, purple, orange } from "./Colors";
 
 const themeOptions = {
     danger: red,
-    cornerRadius: 4,
 };
 
 class ThemeParams {
@@ -23,7 +22,7 @@ class ThemeParams {
     }
 }
 
-const Theme = ({ children, dark, primaryColor, elevation }) => {
+const Theme = ({ children, dark, primaryColor, radius, elevation }) => {
     const colorObject = {
         red: red,
         blue: blue,
@@ -33,6 +32,7 @@ const Theme = ({ children, dark, primaryColor, elevation }) => {
     const myTheme = {
         global: new ThemeParams({
             primaryColor: colorObject[primaryColor],
+            cornerRadius: radius,
             elevation: elevation,
             ...themeOptions,
         }),

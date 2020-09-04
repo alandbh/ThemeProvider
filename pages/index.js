@@ -22,9 +22,15 @@ export default function Home() {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedColor, setSelectedColor] = useState("blue");
     const [elevation, setElevation] = useState("2");
+    const [radius, setRadius] = useState("4");
 
     return (
-        <Theme dark={dark} primaryColor={selectedColor} elevation={elevation}>
+        <Theme
+            dark={dark}
+            primaryColor={selectedColor}
+            radius={radius}
+            elevation={elevation}
+        >
             <Head>
                 <title>Aurora Design System</title>
                 <link rel="icon" href="/favicon.ico" />
@@ -87,6 +93,17 @@ export default function Home() {
                         max="5"
                         value={elevation}
                         onChange={(ev) => setElevation(ev.target.value)}
+                    />
+                    <Heading color="#ffffff77" level={4}>
+                        Elevation
+                    </Heading>
+
+                    <Range
+                        type="range"
+                        min="0"
+                        max="25"
+                        value={radius}
+                        onChange={(ev) => setRadius(ev.target.value)}
                     />
                 </Drawer>
                 <Container>
