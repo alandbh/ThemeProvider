@@ -4,10 +4,10 @@ import { gray, blue, red } from "../Colors";
 
 // import { Container } from './styles';
 
-const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
+const HiddenRadio = styled.input.attrs({ type: "radio" })`
     // Hide checkbox visually but remain accessible to screen readers.
     // Source: https://polished.js.org/docs/#hidevisually
-    border: 0;
+    /* border: 0;
     clip: rect(0 0 0 0);
     clippath: inset(50%);
     height: 1px;
@@ -16,12 +16,12 @@ const HiddenCheckbox = styled.input.attrs({ type: "checkbox" })`
     padding: 0;
     position: absolute;
     white-space: nowrap;
-    width: 1px;
+    width: 1px; */
 `;
 
-const StyledCheckbox = styled.div`
+const StyledRadio = styled.div`
     display: inline-block;
-    width: 2rem;
+    width: 1.5rem;
     height: 1.5rem;
     /* background: ${(props) => (props.checked ? "red" : "blue")}; */
     transition: all 150ms;
@@ -34,13 +34,6 @@ const StyledCheckbox = styled.div`
     &:before {
         content: "";
         display: inline-block;
-        height: 5px;
-        /* background: #000; */
-        background: ${({ theme }) => theme.global.primaryColor[400]};
-        width: 100%;
-        position: absolute;
-        transform-origin: 0% 0%;
-        transition: 0.4s;
     }
 
     &:after {
@@ -56,17 +49,15 @@ const StyledCheckbox = styled.div`
     ${(props) =>
         props.checked
             ? `
-            height: 2rem;
+            height: 1.5rem;
             border-radius: 40px;
     &:after {
-        transform: rotate(-46.3deg);
-        width: 154%;
-        left: -7%;
-        top: 100%;
+        width: 1.5rem;
     }
     &:before {
-        transform: rotate(44.5deg);
-        width: 154%
+        width: 1.5rem;
+        border: 1px solid white;
+        transform: scale(2,2)
     }
     `
             : `
@@ -79,22 +70,23 @@ const StyledCheckbox = styled.div`
     `}
 `;
 
-const CheckboxContainer = styled.label`
-    top: 1rem;
-    left: 1rem;
+const RadioContainer = styled.label`
     display: inline-block;
     vertical-align: middle;
-    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: ${(isChecked) => {
+        console.log(isChecked);
+    }};
     cursor: pointer;
 `;
 
-const ToggleMenu = ({ checked, ...props }) => (
+const ColorRadio = (props) => (
     <>
-        <CheckboxContainer>
-            <HiddenCheckbox checked={checked} {...props} />
-            <StyledCheckbox checked={checked} />
-        </CheckboxContainer>
+        <RadioContainer {...props} isChecked={props.checked}>
+            <HiddenRadio checked={props.checked} {...props} />
+        </RadioContainer>
     </>
 );
 
-export default ToggleMenu;
+export default ColorRadio;
