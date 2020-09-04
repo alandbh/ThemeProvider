@@ -6,7 +6,7 @@ import { gray } from "../Colors";
 
 const Container = styled.div`
     min-height: 100vh;
-    padding: 0 0.5rem;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
