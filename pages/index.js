@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components";
 import Theme from "../components/Theme";
 import Wrapper from "../components/layout";
 import Heading from "../components/Heading/Index";
-import Link from "../components/Link/Index";
+import Link from "../components/Link";
 import Input from "../components/Input";
 import FormWrapper from "../components/FormWrapper";
 import DarkModeToggle from "react-dark-mode-toggle";
