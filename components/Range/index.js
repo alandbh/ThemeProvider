@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { gray, blue, red } from "../Colors";
 
-// import { Container } from './styles';
-
 function getPosition(min, max, value, drop) {
     const range = max - min;
     const difference = value - min;
@@ -55,6 +53,7 @@ const dropSize = 18;
 
 const Drop = styled.span`
     color: #fff;
+    text-shadow: 0.03rem 0.03rem 0.06rem #000000cc;
     display: inline-block;
     width: ${dropSize}px;
     height: ${dropSize}px;
@@ -63,7 +62,7 @@ const Drop = styled.span`
     top: 0;
     left: ${({ min, max, value }) => getPosition(min, max, value, dropSize)};
     text-align: center;
-    transition: 0.2s;
+    transition: transform 0.2s;
     z-index: 1;
     font-size: 0.75rem;
     line-height: ${dropSize}px;
@@ -89,6 +88,13 @@ const RangeContainer = styled.div`
     display: flex;
     align-items: flex-end;
 
+    ${(props) =>
+        document.activeElement.id === props.innerInput
+            ? `> span {
+            transform: scale(1.5) translateY(-5px)
+        }`
+            : ``}
+
     &:hover {
         > span {
             transform: scale(1.5) translateY(-5px);
@@ -97,8 +103,15 @@ const RangeContainer = styled.div`
 `;
 
 const Range = (props) => (
-    <RangeContainer>
-        <Drop {...props}>{props.value}</Drop>
+    <RangeContainer innerInput={props.id}>
+        <Drop
+            min={props.min}
+            max={props.max}
+            value={props.value}
+            theme={props.theme}
+        >
+            {props.value}
+        </Drop>
         <InnerInput {...props} />
     </RangeContainer>
 );

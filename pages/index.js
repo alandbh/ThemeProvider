@@ -91,17 +91,19 @@ export default function Home() {
                         type="range"
                         min="1"
                         max="5"
+                        id="elevation"
                         value={elevation}
                         onChange={(ev) => setElevation(ev.target.value)}
                     />
                     <Heading color="#ffffff77" level={4}>
-                        Elevation
+                        Corner Radius
                     </Heading>
 
                     <Range
                         type="range"
                         min="0"
                         max="25"
+                        id="radius"
                         value={radius}
                         onChange={(ev) => setRadius(ev.target.value)}
                     />
@@ -111,9 +113,6 @@ export default function Home() {
                         onChange={() => setIsOpen(!isOpen)}
                         checked={isOpen}
                     />
-                    <div
-                        style={{ marginTop: 40, marginBottom: "-140px" }}
-                    ></div>
 
                     <main className={styles.main}>
                         <Heading level={1}>Welcome aboard!</Heading>
