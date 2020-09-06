@@ -2,8 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { gray } from "../Colors";
 
-// import { Container } from './styles';
-
 const InnerWrapper = styled.div`
     transition: 1s;
     background: ${({ theme }) =>

@@ -26,57 +26,6 @@ const HiddenRadio = styled.input.attrs({ type: "radio" })`
     width: 1px;
 `;
 
-const StyledRadio = styled.div`
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
-    /* background: ${(props) => (props.checked ? "red" : "blue")}; */
-    transition: all 150ms;
-    position: relative;
-
-    /* border: 1px solid red; */
-    overflow: hidden;
-
-    &:after,
-    &:before {
-        content: "";
-        display: inline-block;
-    }
-
-    &:after {
-        top: calc(100% - 5px);
-        /* transform: rotate(-36deg); */
-    }
-    &:before {
-        top: 0;
-        transform-origin: 4px 0%;
-        /* transform: rotate(36deg); */
-    }
-
-    ${(props) =>
-        props.checked
-            ? `
-            height: 1.5rem;
-            border-radius: 40px;
-    &:after {
-        width: 1.5rem;
-    }
-    &:before {
-        width: 1.5rem;
-        border: 1px solid white;
-        transform: scale(2,2)
-    }
-    `
-            : `
-    &:after {
-        transform: rotate(0deg);
-    }
-    &:before {
-        transform: rotate(0deg);
-    }
-    `}
-`;
-
 const RadioContainer = styled.label`
     display: inline-block;
     vertical-align: middle;
@@ -89,6 +38,10 @@ const RadioContainer = styled.label`
     border-width: ${({ checked }) => (checked ? `4px` : `0px`)};
     border-style: solid;
     border-color: #ffffffaa;
+
+    &:focus {
+        box-shadow: 0 0 15px 5px ${({ value }) => colorObject[value] + `ff`};
+    }
 
     box-shadow: 0 0 15px 5px
         ${({ value, checked }) =>

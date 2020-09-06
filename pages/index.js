@@ -1,18 +1,18 @@
+import { useState } from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
-import Button from "../components/button/Button";
 import { ThemeProvider } from "styled-components";
+import { blue } from "../components/Colors";
+import styles from "../styles/Home.module.css";
 import Theme from "../components/Theme";
+import Button from "../components/Button";
 import Wrapper from "../components/layout";
-import Heading from "../components/Heading/Index";
+import Heading from "../components/Heading";
 import Link from "../components/Link";
 import Input from "../components/Input";
 import FormWrapper from "../components/FormWrapper";
-import { useState } from "react";
 import Container from "../components/Container";
 import Drawer from "../components/Drawer";
 import ToggleMenu from "../components/ToggleMenu";
-import { blue } from "../components/Colors";
 import ColorRadio from "../components/ColorRadio";
 import Range from "../components/Range";
 import SwitchMode from "../components/SwitchMode/Index";
@@ -21,21 +21,25 @@ const drawerStyles = {
     group: {
         marginBottom: 70,
     },
+    colorWrapper: {
+        display: "flex",
+        justifyContent: "space-between",
+    },
 };
 
 export default function Home() {
-    const [dark, setDark] = useState(false);
+    const [isDark, setIsDark] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const [selectedColor, setSelectedColor] = useState("blue");
-    const [elevation, setElevation] = useState("2");
-    const [radius, setRadius] = useState("4");
+    const [selectedElevation, setSelectedElevation] = useState("2");
+    const [selectedRadius, setSelectedRadius] = useState("4");
 
     return (
         <Theme
-            dark={dark}
+            dark={isDark}
             primaryColor={selectedColor}
-            radius={radius}
-            elevation={elevation}
+            radius={selectedRadius}
+            elevation={selectedElevation}
         >
             <Head>
                 <title>Aurora Design System</title>
@@ -49,8 +53,8 @@ export default function Home() {
                         </Heading>
 
                         <SwitchMode
-                            onChange={() => setDark(!dark)}
-                            checked={dark}
+                            onChange={() => setIsDark(!isDark)}
+                            checked={isDark}
                         />
                     </div>
 
@@ -58,12 +62,7 @@ export default function Home() {
                         <Heading color="#ffffff77" level={4}>
                             Primary Color
                         </Heading>
-                        <div
-                            style={{
-                                display: "flex",
-                                justifyContent: "space-between",
-                            }}
-                        >
+                        <div style={drawerStyles.colorWrapper}>
                             <ColorRadio
                                 type="radio"
                                 name="primaryColor"
@@ -104,9 +103,10 @@ export default function Home() {
                             type="range"
                             min="1"
                             max="5"
-                            id="elevation"
-                            value={elevation}
-                            onChange={(ev) => setElevation(ev.target.value)}
+                            value={selectedElevation}
+                            onChange={(ev) =>
+                                setSelectedElevation(ev.target.value)
+                            }
                         />
                     </div>
 
@@ -120,8 +120,10 @@ export default function Home() {
                             min="0"
                             max="25"
                             id="radius"
-                            value={radius}
-                            onChange={(ev) => setRadius(ev.target.value)}
+                            value={selectedRadius}
+                            onChange={(ev) =>
+                                setSelectedRadius(ev.target.value)
+                            }
                         />
                     </div>
                 </Drawer>

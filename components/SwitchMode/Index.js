@@ -55,8 +55,10 @@ const LabelWrapper = styled.label`
         justify-content: center;
         padding: 0;
         border-radius: 100px;
-        font-size: 0.9rem;
-        color: #ffffff;
+        font-size: 0.7rem;
+        color: #ffffffaa;
+        font-weight: bold;
+        text-transform: uppercase;
         text-shadow: 0.03rem 0.03rem 0.06rem #000000cc;
         margin: auto 0.4rem;
         opacity: 0.8;

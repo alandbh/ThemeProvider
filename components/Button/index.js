@@ -1,14 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import { Container } from './styles';
-
-// function Button({ children }) {
-//     return <button>{children}</button>;
-// }
 
 function colorHandler(buttonProps) {
-    // console.log(buttonProps);
-    // return "orange";
     return buttonProps.primary
         ? buttonProps.theme.global.primaryColor.dark
         : `#f3f3f3`;
