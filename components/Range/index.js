@@ -25,6 +25,10 @@ const InnerInput = styled.input.attrs({ type: "range" })`
 
     &:focus {
         outline: none;
+        opacity: 1;
+        & + span {
+            transform: scale(1.5) translateY(-5px);
+        }
     }
 
     &:hover {
@@ -88,12 +92,12 @@ const RangeContainer = styled.div`
     display: flex;
     align-items: flex-end;
 
-    ${(props) =>
+    /* ${(props) =>
         document.activeElement.id === props.innerInput
             ? `> span {
             transform: scale(1.5) translateY(-5px)
         }`
-            : ``}
+            : ``} */
 
     &:hover {
         > span {
@@ -104,6 +108,7 @@ const RangeContainer = styled.div`
 
 const Range = (props) => (
     <RangeContainer innerInput={props.id}>
+        <InnerInput {...props} />
         <Drop
             min={props.min}
             max={props.max}
@@ -112,7 +117,6 @@ const Range = (props) => (
         >
             {props.value}
         </Drop>
-        <InnerInput {...props} />
     </RangeContainer>
 );
 
