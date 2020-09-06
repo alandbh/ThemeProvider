@@ -66,7 +66,7 @@ const LabelWrapper = styled.label`
         content: "";
         width: 2rem;
         height: 2rem;
-        background: ${(props) => (props.checked ? `#00000055` : `#ffbf00cc`)};
+        background: ${(props) => (props.checked ? `#00000055` : `#ffe186cc`)};
         border-radius: 100px;
         position: absolute;
         transition: 0.4s;
