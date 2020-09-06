@@ -17,6 +17,12 @@ import ColorRadio from "../components/ColorRadio";
 import Range from "../components/Range";
 import SwitchMode from "../components/SwitchMode/Index";
 
+const drawerStyles = {
+    group: {
+        marginBottom: 70,
+    },
+};
+
 export default function Home() {
     const [dark, setDark] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
@@ -37,77 +43,87 @@ export default function Home() {
             </Head>
             <Wrapper drawer={isOpen}>
                 <Drawer open={isOpen}>
-                    <Heading color="#ffffff77" level={4}>
-                        Dark / Light Mode
-                    </Heading>
+                    <div style={drawerStyles.group}>
+                        <Heading color="#ffffff77" level={4}>
+                            Dark / Light Mode
+                        </Heading>
 
-                    <SwitchMode
-                        onChange={() => setDark(!dark)}
-                        checked={dark}
-                    />
-
-                    <Heading color="#ffffff77" level={4}>
-                        Primary Color
-                    </Heading>
-                    <div
-                        style={{
-                            display: "flex",
-                            justifyContent: "space-between",
-                        }}
-                    >
-                        <ColorRadio
-                            type="radio"
-                            name="primaryColor"
-                            value="blue"
-                            checked={selectedColor === "blue"}
-                            onChange={() => setSelectedColor("blue")}
-                        />
-                        <ColorRadio
-                            type="radio"
-                            name="primaryColor"
-                            value="purple"
-                            checked={selectedColor === "purple"}
-                            onChange={() => setSelectedColor("purple")}
-                        />
-                        <ColorRadio
-                            type="radio"
-                            name="primaryColor"
-                            value="red"
-                            checked={selectedColor === "red"}
-                            onChange={() => setSelectedColor("red")}
-                        />
-                        <ColorRadio
-                            type="radio"
-                            name="primaryColor"
-                            value="orange"
-                            checked={selectedColor === "orange"}
-                            onChange={() => setSelectedColor("orange")}
+                        <SwitchMode
+                            onChange={() => setDark(!dark)}
+                            checked={dark}
                         />
                     </div>
-                    <Heading color="#ffffff77" level={4}>
-                        Elevation
-                    </Heading>
 
-                    <Range
-                        type="range"
-                        min="1"
-                        max="5"
-                        id="elevation"
-                        value={elevation}
-                        onChange={(ev) => setElevation(ev.target.value)}
-                    />
-                    <Heading color="#ffffff77" level={4}>
-                        Corner Radius
-                    </Heading>
+                    <div style={drawerStyles.group}>
+                        <Heading color="#ffffff77" level={4}>
+                            Primary Color
+                        </Heading>
+                        <div
+                            style={{
+                                display: "flex",
+                                justifyContent: "space-between",
+                            }}
+                        >
+                            <ColorRadio
+                                type="radio"
+                                name="primaryColor"
+                                value="blue"
+                                checked={selectedColor === "blue"}
+                                onChange={() => setSelectedColor("blue")}
+                            />
+                            <ColorRadio
+                                type="radio"
+                                name="primaryColor"
+                                value="purple"
+                                checked={selectedColor === "purple"}
+                                onChange={() => setSelectedColor("purple")}
+                            />
+                            <ColorRadio
+                                type="radio"
+                                name="primaryColor"
+                                value="red"
+                                checked={selectedColor === "red"}
+                                onChange={() => setSelectedColor("red")}
+                            />
+                            <ColorRadio
+                                type="radio"
+                                name="primaryColor"
+                                value="orange"
+                                checked={selectedColor === "orange"}
+                                onChange={() => setSelectedColor("orange")}
+                            />
+                        </div>
+                    </div>
 
-                    <Range
-                        type="range"
-                        min="0"
-                        max="25"
-                        id="radius"
-                        value={radius}
-                        onChange={(ev) => setRadius(ev.target.value)}
-                    />
+                    <div style={drawerStyles.group}>
+                        <Heading color="#ffffff77" level={4}>
+                            Elevation
+                        </Heading>
+
+                        <Range
+                            type="range"
+                            min="1"
+                            max="5"
+                            id="elevation"
+                            value={elevation}
+                            onChange={(ev) => setElevation(ev.target.value)}
+                        />
+                    </div>
+
+                    <div style={drawerStyles.group}>
+                        <Heading color="#ffffff77" level={4}>
+                            Corner Radius
+                        </Heading>
+
+                        <Range
+                            type="range"
+                            min="0"
+                            max="25"
+                            id="radius"
+                            value={radius}
+                            onChange={(ev) => setRadius(ev.target.value)}
+                        />
+                    </div>
                 </Drawer>
                 <Container>
                     <ToggleMenu
