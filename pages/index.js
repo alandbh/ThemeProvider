@@ -8,7 +8,6 @@ import Heading from "../components/Heading/Index";
 import Link from "../components/Link";
 import Input from "../components/Input";
 import FormWrapper from "../components/FormWrapper";
-import DarkModeToggle from "react-dark-mode-toggle";
 import { useState } from "react";
 import Container from "../components/Container";
 import Drawer from "../components/Drawer";
@@ -16,6 +15,7 @@ import ToggleMenu from "../components/ToggleMenu";
 import { blue } from "../components/Colors";
 import ColorRadio from "../components/ColorRadio";
 import Range from "../components/Range";
+import SwitchMode from "../components/SwitchMode/Index";
 
 export default function Home() {
     const [dark, setDark] = useState(false);
@@ -40,11 +40,12 @@ export default function Home() {
                     <Heading color="#ffffff77" level={4}>
                         Dark / Light Mode
                     </Heading>
-                    <DarkModeToggle
+
+                    <SwitchMode
                         onChange={() => setDark(!dark)}
                         checked={dark}
-                        size={60}
                     />
+
                     <Heading color="#ffffff77" level={4}>
                         Primary Color
                     </Heading>
