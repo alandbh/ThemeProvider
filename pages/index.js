@@ -30,9 +30,9 @@ const drawerStyles = {
 export default function Home() {
     const [isDark, setIsDark] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedColor, setSelectedColor] = useState("blue");
+    const [selectedColor, setSelectedColor] = useState("purple");
     const [selectedElevation, setSelectedElevation] = useState("2");
-    const [selectedRadius, setSelectedRadius] = useState("4");
+    const [selectedRadius, setSelectedRadius] = useState("6");
 
     return (
         <Theme
