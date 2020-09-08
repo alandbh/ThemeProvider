@@ -12,7 +12,7 @@ const InnerWrapper = styled.div`
 const Overflow = styled.div`
     display: flex;
     transition: 0.4s;
-    width: ${(props) => (props.drawer ? `calc(100% + 300px)` : `100%`)};
+    width: ${(props) => (props.drawer ? `calc(100% + 230px)` : `100%`)};
 `;
 
 const Wrapper = (props) => {

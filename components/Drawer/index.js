@@ -5,14 +5,14 @@ import { gray } from "../Colors";
 // import { Container } from './styles';
 
 const OuterDrawer = styled.div`
-    width: ${(props) => (props.open ? 300 : 0)}px;
+    width: ${(props) => (props.open ? 230 : 0)}px;
     background: #113344;
     overflow: hidden;
     transition: 0.4s;
 `;
 
 const InnerDrawer = styled.div`
-    width: 300px;
+    width: 230px;
     padding: 20px;
 `;
 
