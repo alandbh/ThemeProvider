@@ -2,8 +2,17 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import { blue, red, purple, orange } from "./Colors";
 
-const themeOptions = {
-    danger: red,
+/**
+ * Setting Up Theme Object
+ */
+const themeObject = {
+    global: {
+        primaryColor: purple,
+        cornerRadius: 4,
+        elevation: 5,
+        danger: red,
+    },
+    dark: false,
 };
 
 class ThemeParams {
@@ -29,16 +38,21 @@ const Theme = ({ children, dark, primaryColor, radius, elevation }) => {
         purple: purple,
         orange: orange,
     };
-    const myTheme = {
+
+    /**
+     * Setting Up Dynamic Theme Object
+     */
+
+    const dynamicTheme = {
         global: new ThemeParams({
             primaryColor: colorObject[primaryColor],
             cornerRadius: radius,
             elevation: elevation,
-            ...themeOptions,
+            danger: red,
         }),
         dark,
     };
 
-    return <ThemeProvider theme={myTheme}>{children}</ThemeProvider>;
+    return <ThemeProvider theme={dynamicTheme}>{children}</ThemeProvider>;
 };
 export default Theme;
